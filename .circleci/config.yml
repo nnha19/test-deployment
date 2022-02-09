@@ -7,4 +7,4 @@ jobs:
       - checkout
       - run:
           name: Deploy
-          command: curl -X POST -d {} ${hook}
+          command: ./node_modules/.bin/netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --prod --dir=public
