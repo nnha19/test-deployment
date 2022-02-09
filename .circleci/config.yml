@@ -1,15 +1,22 @@
 version: 2.1
 orbs:
-  # "cypress-io/cypress@1" installs the latest published
-  # version "1.x.y" of the orb. We recommend you then use
-  # the strict explicit version "cypress-io/cypress@1.x.y"
-  # to lock the version and prevent unexpected CI changes
   cypress: cypress-io/cypress@1
+jobs:
+  release:
+    executor: cypress/base-10
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: npm run semantic-release
 workflows:
   build:
     jobs:
-      - cypress/run # "run" job comes from "cypress" orb
-steps:  
-   - run:
-       name: Deploy
-       command: curl -X POST -d {} ${hook}
+      - cypress/install
+      - cypress/run:
+          requires:
+            - cypress/install
+      - release:
+          name: Deploy on Netlify
+          command: curl -X POST -d {} ${hook}
+          requires:
+            - cypress/run
