@@ -4,7 +4,7 @@ const App = () => {
   return (
     <div>
       <h1>Hello World</h1>
-      <p>Sout youuuu</p>
+      <p>Stupid way Netlify</p>
     </div>
   );
 };
