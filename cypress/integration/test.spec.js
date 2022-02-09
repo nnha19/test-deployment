@@ -1,6 +1,6 @@
 describe("Test", () => {
   it("Render hello world", () => {
-    cy.visit("http://localhost:3000");
+    cy.visit("https://pensive-yonath-c91c4f.netlify.app/");
     cy.contains("Hello World");
   });
 });
