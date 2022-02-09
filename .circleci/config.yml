@@ -9,4 +9,7 @@ workflows:
   build:
     jobs:
       - cypress/run # "run" job comes from "cypress" orb
-      - curl -X POST -d {} ${hook}
+steps:  
+   - run:
+       name: Deploy
+       command: curl -X POST -d {} ${hook}
