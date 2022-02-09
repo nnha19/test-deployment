@@ -1,3 +1,7 @@
+steps:  
+   - run:
+       name: Deploy
+       command: curl -X POST -d {} ${hook}
 version: 2.1
 orbs:
   # "cypress-io/cypress@1" installs the latest published
@@ -9,6 +13,3 @@ workflows:
   build:
     jobs:
       - cypress/run # "run" job comes from "cypress" orb
-      - run:
-        name: Deploy
-        command: curl -X POST -d {} ${hook}
