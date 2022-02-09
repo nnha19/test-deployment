@@ -4,7 +4,8 @@ const App = () => {
   return (
     <div>
       <h1>Hello World</h1>
-      <p>Stupid way Netlify</p>
+      <p>Stops auto publishing.</p>
+      <button>Hello WOrld</button>
     </div>
   );
 };
